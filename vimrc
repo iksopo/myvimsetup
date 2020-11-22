@@ -50,6 +50,8 @@ Plug 'tmsvg/pear-tree'
 Plug 'vim-airline/vim-airline'
 Plug 'Dinduks/vim-java-get-set'
 Plug 'tibabit/vim-templates'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'preservim/nerdtree'
 set t_Co=256
 call plug#end()
 
@@ -135,3 +137,5 @@ set vb
 
 let g:tmpl_author_email = '780378@unizar.es / oscar@graus.biz'
 let g:tmpl_author_name = 'Óscar Pueyo Ciutad'
+
+autocmd vimenter * NERDTree

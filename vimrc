@@ -1,10 +1,13 @@
 syntax on
 
+set encoding=utf-8
+
 set hidden
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set smartindent
+set noexpandtab
 set nu
 set nowrap
 set smartcase
@@ -35,6 +38,10 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 set relativenumber
 set clipboard+=unnamedplus
 
+function! DoRemote(arg)
+	UpdateRemotePlugins
+endfunction
+
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'jremmen/vim-ripgrep'
@@ -45,13 +52,13 @@ Plug 'lyuts/vim-rtags'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ThePrimeagen/vim-be-good', { 'do': './install.sh' }
-Plug 'alvan/vim-closetag'
 Plug 'tmsvg/pear-tree'
 Plug 'vim-airline/vim-airline'
 Plug 'Dinduks/vim-java-get-set'
 Plug 'tibabit/vim-templates'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'preservim/nerdtree'
+Plug 'daeyun/vim-matlab', { 'do': function('DoRemote')}
 set t_Co=256
 call plug#end()
 
@@ -138,4 +145,23 @@ set vb
 let g:tmpl_author_email = '780378@unizar.es / oscar@graus.biz'
 let g:tmpl_author_name = 'Óscar Pueyo Ciutad'
 
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
+"nnoremap <leader>n :NERDTreeFocus<CR>
+"nnoremap <C-n> :NERDTree<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+let g:NERDTreeDirArrowExpandable = 'v'
+let g:NERDTreeDirArrowCollapsible = '>'
+
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+		let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline_theme = 'molokai'
+
+set pastetoggle=<F3>
+
+

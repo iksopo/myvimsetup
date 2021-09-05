@@ -49,16 +49,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-utils/vim-man'
 Plug 'lyuts/vim-rtags'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'ThePrimeagen/vim-be-good', { 'do': './install.sh' }
 Plug 'tmsvg/pear-tree'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'Dinduks/vim-java-get-set'
 Plug 'tibabit/vim-templates'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'preservim/nerdtree'
-Plug 'daeyun/vim-matlab', { 'do': function('DoRemote')}
+"Plug 'xuhdev/vim-latex-live-preview'
+"Plug 'daeyun/vim-matlab', { 'do': function('DoRemote')}
 set t_Co=256
 call plug#end()
 
@@ -153,15 +154,14 @@ nnoremap <leader>f :NERDTreeFind<CR>
 let g:NERDTreeDirArrowExpandable = 'v'
 let g:NERDTreeDirArrowCollapsible = '>'
 
+"airline
 let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-		let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'google_dark'
 
 set pastetoggle=<F3>
 
-
+" Change beetween splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
